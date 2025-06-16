@@ -22,7 +22,7 @@ wk.add({
         group = "Launch",
         icon = ""
     },
-    { "<leader>pv", function() vim.cmd.Ex() end, desc = "Netrw", icon = "󰉋" },
+    { "<leader>pv", "<cmd>Oil<cr>", desc = "Oil", icon = "󰉋" },
     {
         "<leader>g",
         group = "Goto",
