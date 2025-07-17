@@ -31,3 +31,5 @@ vim.opt.cmdheight = 0
 
 vim.o.timeout = true
 vim.o.timeoutlen = 300
+
+vim.o.guifont = "JetBrainsMono Nerd Font:h12"
