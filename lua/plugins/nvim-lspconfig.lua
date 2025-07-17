@@ -1,35 +1,42 @@
 return {
-  "neovim/nvim-lspconfig",
-  config = function()
-    vim.lsp.enable "ts_ls"
-    vim.lsp.enable "bashls"
-    vim.lsp.enable "lua_ls"
-    vim.lsp.enable "yamlls"
-    vim.lsp.enable "powershell_es"
+    "neovim/nvim-lspconfig",
+    config = function()
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
-    vim.lsp.config("*", {
-      capabilities = capabilities,
-    })
-    vim.lsp.config("yamlls", {
-      on_attach = function(client, _)
-        client.server_capabilities.documentFormattingProvider = true
-      end,
-      settings = {
-        yaml = {
-          schemas = {
-            ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-            ["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
-            ["https://json.schemastore.org/github-issue-forms.json"] = "/.github/ISSUE_TEMPLATE/*",
-          },
-          trace = {
-            server = "verbose",
-          },
-          format = {
-            enable = true,
-          },
-        },
-      },
-    })
-  end,
+        vim.lsp.config("*", {
+            capabilities = capabilities,
+        })
+
+        vim.lsp.config('lua_ls', {
+            settings = {
+                Lua = {
+                    runtime = { version = 'Lua 5.1' },
+                    diagnostics = {
+                        globals = { 'bit', 'vim', 'it', 'describe', 'before_each', 'after_each' },
+                    },
+                },
+            },
+        })
+
+        local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
+            '/vue-language-server' .. '/node_modules/@vue/language-server'
+
+        vim.lsp.config('ts_ls', {
+            init_options = {
+                plugins = {
+                    {
+                        name = '@vue/typescript-plugin',
+                        location = vue_language_server_path,
+                        languages = { 'vue' },
+                        configNamespace = 'typescript',
+                    },
+                },
+            },
+            filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+        })
+
+        vim.lsp.enable('ts_ls')
+        vim.lsp.enable('lua_ls')
+        vim.lsp.enable('rust_analyzer')
+    end,
 }
