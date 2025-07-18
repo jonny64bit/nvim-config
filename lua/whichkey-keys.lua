@@ -17,12 +17,13 @@ wk.add({
     { "<leader>fi", "<cmd>Telescope lsp_implementations<cr>", desc = "Find Implementations", icon = "" },
     { "<leader>fd", "<cmd>Telescope lsp_definitions<cr>", desc = "Find Definitions", icon = "" },
     { "<leader>fr", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Find Types", icon = "󰛦" },
+    { "<leader>fp", ":lua require'telescope'.extensions.project.project{}<CR>", desc = "Find Projects", icon = "" },
     {
         "<leader>p",
         group = "Launch",
         icon = ""
     },
-    { "<leader>pv", "<cmd>Oil<cr>", desc = "Oil", icon = "󰉋" },
+    { "<leader>pv", "<cmd>Oil --float<cr>", desc = "Oil", icon = "󰉋" },
     {
         "<leader>g",
         group = "Goto",
