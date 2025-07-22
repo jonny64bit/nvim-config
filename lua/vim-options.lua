@@ -33,3 +33,12 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 
 vim.o.guifont = "JetBrainsMono Nerd Font:h12"
+
+vim.diagnostic.config({
+  virtual_text = true,  -- show inline messages
+  signs = true,         -- show signs in the gutter
+  underline = true,     -- underline problematic text
+  update_in_insert = false, -- don't update diagnostics while typing
+  severity_sort = true,     -- sort diagnostics by severity
+})
+
