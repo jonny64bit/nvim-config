@@ -1,5 +1,7 @@
 local wk = require("which-key")
 
+-- ICONS https://www.nerdfonts.com/cheat-sheet
+
 wk.add({
     {
         "<leader>f",
@@ -53,7 +55,24 @@ wk.add({
         mode = { "n", "x", "o" },
         desc = "Flash",
         icon = ""
-    }
+    },
+    {
+        "<leader>t",
+        group = "Test",
+        icon = "󰙨"
+    },
+    { "<leader>ta", '<cmd>lua require("neotest").run.run({ suite = true })<cr>', desc = "All Tests", icon = "" },
+    { "<leader>tf", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<cr>', desc = "File Tests", icon = "" },
+    { "<leader>tt", '<cmd>lua require("neotest").run.run()<cr>', desc = "Closest", icon = "󰮭" },
+    { "<leader>td", '<cmd>lua require("neotest").run.run({strategy = "dap"})<cr>', desc = "Closest", icon = "󰃤" },
+    {
+        "<leader>d",
+        group = "Debug/Run",
+        icon = ""
+    },
+    { "<leader>dd", '<cmd>lua require("dap").continue()<cr>', desc = "Debug", icon = "" },
+    { "<leader>dt", '<cmd>lua require("dap").toggle_breakpoint()<cr>', desc = "Toggle Breakpoint", icon = "" },
+    { "<leader>dv", '<cmd>:DapViewToggle<cr>', desc = "View", icon = "󰈈" },
 });
 
 wk.add({
