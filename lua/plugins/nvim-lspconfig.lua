@@ -98,5 +98,8 @@ return {
         vim.lsp.enable('lua_ls')
         vim.lsp.enable('rust_analyzer')
         vim.lsp.config("roslyn", {})
+
+        vim.lsp.config("ols",{});
+        vim.lsp.enable("ols");
     end,
 }
