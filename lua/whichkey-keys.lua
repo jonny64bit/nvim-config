@@ -18,7 +18,7 @@ wk.add({
     { "<leader>fr", "<cmd>Telescope lsp_references<cr>", desc = "Find References", icon = "" },
     { "<leader>fi", "<cmd>Telescope lsp_implementations<cr>", desc = "Find Implementations", icon = "" },
     { "<leader>fd", "<cmd>Telescope lsp_definitions<cr>", desc = "Find Definitions", icon = "" },
-    { "<leader>fr", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Find Types", icon = "󰛦" },
+    { "<leader>fT", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Find Types", icon = "󰛦" },
     { "<leader>fp", ":lua require'telescope'.extensions.project.project{}<CR>", desc = "Find Projects", icon = "" },
     {
         "<leader>p",

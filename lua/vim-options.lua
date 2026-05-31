@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = "\\"
 
@@ -35,10 +38,9 @@ vim.o.timeoutlen = 300
 vim.o.guifont = "JetBrainsMono Nerd Font:h12"
 
 vim.diagnostic.config({
-  virtual_text = true,  -- show inline messages
-  signs = true,         -- show signs in the gutter
-  underline = true,     -- underline problematic text
-  update_in_insert = false, -- don't update diagnostics while typing
-  severity_sort = true,     -- sort diagnostics by severity
+    virtual_text = true,    -- show inline messages
+    signs = true,           -- show signs in the gutter
+    underline = true,       -- underline problematic text
+    update_in_insert = false, -- don't update diagnostics while typing
+    severity_sort = true,   -- sort diagnostics by severity
 })
-

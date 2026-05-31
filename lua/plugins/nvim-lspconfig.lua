@@ -77,27 +77,9 @@ return {
         vim.lsp.config('vue_ls', vue_ls_config)
         vim.lsp.enable({ 'vtsls', 'vue_ls' })
 
-        --[[
-        vim.lsp.config('ts_ls', {
-            init_options = {
-                plugins = {
-                    {
-                        name = '@vue/typescript-plugin',
-                        location = vue_language_server_path,
-                        languages = { 'vue' },
-                        configNamespace = 'typescript',
-                    },
-                },
-            },
-            filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-        })
-
-        vim.lsp.enable('ts_ls')
-        ]]
-
         vim.lsp.enable('lua_ls')
         vim.lsp.enable('rust_analyzer')
-        vim.lsp.config("roslyn", {})
+        vim.lsp.enable("roslyn")
 
         vim.lsp.config("ols",{});
         vim.lsp.enable("ols");

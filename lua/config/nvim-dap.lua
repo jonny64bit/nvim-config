@@ -18,33 +18,16 @@ dap.configurations.cs = {
         name = "launch - netcoredbg",
         request = "launch",
         program = function()
-            return require("dap-dll-autopicker").build_dll_path()
+            return vim.fn.input("Path to DLL: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
         end,
-
-        -- justMyCode = false,
-        -- stopAtEntry = false,
-        -- -- program = function()
-        -- --   -- todo: request input from ui
-        -- --   return "/path/to/your.dll"
-        -- -- end,
+        justMyCode = false,
+        stopAtEntry = false,
         env = {
-            ASPNETCORE_ENVIRONMENT = function()
-                return "Development"
-            end,
-            ASPNETCORE_URLS = function()
-                return "https://localhost:5050"
-            end,
-            ASPIRE_DASHBOARD_OTLP_ENDPOINT_URL = function()
-                return "https://localhost:21030"
-            end,
-            ASPIRE_RESOURCE_SERVICE_ENDPOINT_URL = function()
-                return "https://localhost:22057"
-            end,
+            ASPNETCORE_ENVIRONMENT = "Development",
+            ASPNETCORE_URLS = "https://localhost:5050",
+            ASPIRE_DASHBOARD_OTLP_ENDPOINT_URL = "https://localhost:21030",
+            ASPIRE_RESOURCE_SERVICE_ENDPOINT_URL = "https://localhost:22057",
         },
-        -- cwd = function()
-        --   -- todo: request input from ui
-        --   return vim.fn.getcwd()
-        -- end,
     },
     {
         -- If you get an "Operation not permitted" error using this, try disabling YAMA:
