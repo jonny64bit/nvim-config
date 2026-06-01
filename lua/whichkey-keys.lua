@@ -22,10 +22,13 @@ wk.add({
     { "<leader>fp", ":lua require'telescope'.extensions.project.project{}<CR>", desc = "Find Projects", icon = "" },
     {
         "<leader>p",
-        group = "Launch",
-        icon = ""
+        group = "Tree",
+        icon = ""
     },
-    { "<leader>pv", "<cmd>Oil --float<cr>", desc = "Oil", icon = "󰉋" },
+    { "<leader>pt", "<cmd>NvimTreeToggle<cr>", desc = "Toggle", icon = "󰉋" },
+    { "<leader>pf", "<cmd>NvimTreeFocus<cr>", desc = "Focus", icon = "󰉋" },
+    { "<leader>p-", "<cmd>lua require'nvim-tree.api'.tree.resize({ relative = -5 })<cr>", desc = "Resize", icon = "󰉋" },
+    { "<leader>p=", "<cmd>lua require'nvim-tree.api'.tree.resize({ relative = 5 })<cr>", desc = "Resize", icon = "󰉋" },
     {
         "<leader>g",
         group = "Goto",
