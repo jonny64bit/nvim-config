@@ -7,3 +7,4 @@ require("neotest").setup({
     require("neotest-vstest")
   }
 })
+require("config.zig-config")
