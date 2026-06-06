@@ -19,8 +19,8 @@ return {
         })
 
         local vue_language_server_path = vim.fn.expand('$MASON/packages')
-        .. '/vue-language-server'
-        .. '/node_modules/@vue/language-server'
+            .. '/vue-language-server'
+            .. '/node_modules/@vue/language-server'
 
         local vue_plugin = {
             name = '@vue/typescript-plugin',
@@ -63,7 +63,8 @@ return {
                         },
                     }, { bufnr = context.bufnr }, function(err, r)
                         if err then
-                            vim.notify("Error executing tsserver command" .. command .. "\n" .. err, vim.log.levels.ERROR)
+                            vim.notify("Error executing tsserver command" .. command .. "\n" .. err, vim.log.levels
+                                .ERROR)
                         end
                         local response_data = { { id, r.body } }
                         ---@diagnostic disable-next-line: param-type-mismatch
@@ -73,6 +74,19 @@ return {
             end,
         }
 
+        vim.lsp.config('yamlls', {
+            settings = {
+                yaml = {
+                    schemas = {
+                        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+                        ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.1-standalone-strict/all.json"] =
+                        "/*.k8s.yaml",
+                    },
+                },
+            }
+        })
+        vim.lsp.enable('yamlls')
+
         vim.lsp.config('vtsls', vtsls_config)
         vim.lsp.config('vue_ls', vue_ls_config)
         vim.lsp.enable({ 'vtsls', 'vue_ls' })
@@ -81,7 +95,7 @@ return {
         vim.lsp.enable('rust_analyzer')
         vim.lsp.enable("roslyn")
 
-        vim.lsp.config("ols",{});
+        vim.lsp.config("ols", {});
         vim.lsp.enable("ols");
     end,
 }
