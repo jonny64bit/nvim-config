@@ -6,9 +6,9 @@ return {
         'rafamadriz/friendly-snippets',
     },
     build = function()
+        require('blink.cmp').build():wait(60000)
         -- build the fuzzy matcher, optionally add a timeout to `pwait(timeout_ms)`
         -- you can use `gb` in `:Lazy` to rebuild the plugin as needed
-        require('blink.cmp').build():pwait()
     end,
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
